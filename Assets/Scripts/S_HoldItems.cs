@@ -4,50 +4,71 @@ using UnityEngine;
 
 public class S_HoldItems : MonoBehaviour
 {
-    private Transform dragging = null;
-    private Vector3 offset;
+    private bool dragging = false;
     private GameObject item;
-    private LayerMask layerMasks;
+    private Rigidbody2D body;
+    private float moveForce = 70;
 
-    private void Start()
-    {
-        layerMasks = LayerMask.GetMask("Moveable") | LayerMask.GetMask("MoveableTrigger");
-    }
     void Update()
     {
+        // If the mouse is down
         if (Input.GetMouseButtonDown(0))
         {
-            // If the mouse is down, cast a ray to see where the mouse is 
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, float.PositiveInfinity, layerMasks);
+            // Cast a ray from the mouse's position
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, float.PositiveInfinity, LayerMask.GetMask("Moveable"));
+
+            // If the mouse hit anything from the moveable layer
             if (hit)
             {
+                // Record the hit item and get its rigidbody
                 item = hit.transform.gameObject;
-                // If the object was hit, record its transform
-                dragging = hit.transform;
-                // Record the offset between its centre and the mouse
-                offset = dragging.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                body = item.GetComponent<Rigidbody2D>();
+
+                // You are now dragging
+                dragging = true;
             }
         }
 
-        else if (Input.GetMouseButtonUp(0))
+        // If the player lets go
+        else if (Input.GetMouseButtonUp(0)) 
         {
-            // Stop dragging if the mouse lifts
-            dragging = null;
+            // You are no longer dragging
+            dragging = false;
 
-            if (item != null)
+            // If they were holding an item before
+            if (item != null) 
             {
-                // Set velocity to zero in order to prevent falling speed building up while dragging
-                item.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
+                // Set all of the body's variables back to how they were before being picked up
+                body.gravityScale = 1;
+                body.linearDamping = 0;
 
-                // Checks if the item is in a destroy area. If it is, destroy
+                // Stop the body from getting flung too far
+                body.linearVelocity = Vector3.ClampMagnitude(body.linearVelocity, 20);
+
+                // Check if the item is overlapping a trinket
                 item.SendMessage("CheckIfInArea", SendMessageOptions.DontRequireReceiver);
             }
         }
 
-        if (dragging != null)
+        // While the item is being dragged
+        if (dragging)
         {
-            // If dragging, set the object's new transform to the mouse position + offset
-            dragging.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+            // Remove the item's gravity so it doesn't fall
+            body.gravityScale = 0;
+
+            // Find the direction to move in
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = mousePosition - item.transform.position;
+
+            // Add force in that direction
+            body.AddForce(direction.normalized * moveForce);
+
+            // If the item is close to the mouse 
+            if (item.transform.position.x - mousePosition.x <= 5 || item.transform.position.y - mousePosition.y <= 7f)
+            {
+                // Damp its velocity to prevent it from getting flung back and forth
+                body.linearDamping = 10;
+            }
         }
     }
 }
