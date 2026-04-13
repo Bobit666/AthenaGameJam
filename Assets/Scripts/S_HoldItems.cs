@@ -35,9 +35,6 @@ public class S_HoldItems : MonoBehaviour
             {
                 // Set velocity to zero in order to prevent falling speed building up while dragging
                 item.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
-
-                // Checks if the item is in a destroy area. If it is, destroy
-                item.SendMessage("CheckIfInArea");
             }
         }
 
