@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 // This class handles the player's ability to click and drag items on the "Moveable" layer
 
@@ -9,13 +7,18 @@ public class S_HoldItems : MonoBehaviour
     private Transform dragging = null;
     private Vector3 offset;
     private GameObject item;
+    private LayerMask layerMasks;
 
+    private void Start()
+    {
+        layerMasks = LayerMask.GetMask("Moveable") | LayerMask.GetMask("MoveableTrigger");
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             // If the mouse is down, cast a ray to see where the mouse is 
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, float.PositiveInfinity, LayerMask.GetMask("Moveable"));
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, float.PositiveInfinity, layerMasks);
             if (hit)
             {
                 item = hit.transform.gameObject;
@@ -35,6 +38,9 @@ public class S_HoldItems : MonoBehaviour
             {
                 // Set velocity to zero in order to prevent falling speed building up while dragging
                 item.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
+
+                // Checks if the item is in a destroy area. If it is, destroy
+                item.SendMessage("CheckIfInArea", SendMessageOptions.DontRequireReceiver);
             }
         }
 

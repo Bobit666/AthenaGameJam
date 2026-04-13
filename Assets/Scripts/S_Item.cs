@@ -6,11 +6,16 @@ public class S_Item : MonoBehaviour
     public itemTypeEnum itemType;
 
     private SpriteRenderer _renderer;
-    public Sprite[] sprites; 
+    public Sprite[] sprites;
+
+    private bool inArea = false;
+    private GameObject colliderObject;
+    private Rigidbody2D body;
 
     private void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        body = GetComponent<Rigidbody2D>();
 
         switch (itemType)
         {
@@ -25,6 +30,28 @@ public class S_Item : MonoBehaviour
             case itemTypeEnum.Item3:
                 _renderer.sprite = sprites[2];
                 break;
+        }
+    }
+
+    void Collided(GameObject trinketOverlapped)
+    {
+        colliderObject = trinketOverlapped;
+        inArea = true;
+        print("Collided");
+    }
+
+    void LeftCollision(GameObject trinketOverlapped)
+    {
+        inArea = false;
+        print("LeftCollision");
+    }
+
+    void CheckIfInArea()
+    {
+        if (inArea)
+        {
+            //body.gravityScale = 0;
+            colliderObject.SendMessage("AttachItem");
         }
     }
 }
