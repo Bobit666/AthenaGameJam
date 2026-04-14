@@ -34,6 +34,8 @@ public class S_Item : MonoBehaviour
             case itemTypeEnum.Item3:
                 _renderer.sprite = sprites[2];
                 break;
+            default:
+                break;
         }
     }
 
