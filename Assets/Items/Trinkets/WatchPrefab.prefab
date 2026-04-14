@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 1776305106979736254}
   - component: {fileID: 7181733114762431887}
   - component: {fileID: 303995878460932135}
-  - component: {fileID: 4207864633575037729}
   m_Layer: 7
   m_Name: WatchPrefab
   m_TagString: Untagged
@@ -289,15 +288,3 @@ PolygonCollider2D:
       - {x: 1.1915722, y: 0.652951}
       - {x: 0.7548895, y: 0.7803781}
   m_UseDelaunayMesh: 0
---- !u!114 &4207864633575037729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387162394262882160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2d68ca0eeea5a46a5390d9784433f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::S_Trinket

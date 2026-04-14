@@ -4,40 +4,9 @@ using UnityEngine;
 
 public class S_Item : MonoBehaviour
 {
-    public enum itemTypeEnum {Item1, Item2, Item3};
-    public itemTypeEnum itemType;
-
-    private SpriteRenderer _renderer;
-    public Sprite[] sprites;
-
+    public string itemName;
     private bool inArea = false;
     private GameObject colliderObject;
-    private Rigidbody2D body;
-
-    private void Start()
-    {
-        // Get components
-        _renderer = GetComponent<SpriteRenderer>();
-        body = GetComponent<Rigidbody2D>();
-
-        // Switch on the item type enum to determine the sprite to use
-        switch (itemType)
-        {
-            case itemTypeEnum.Item1:
-                _renderer.sprite = sprites[0];
-                break;
-
-            case itemTypeEnum.Item2:
-                _renderer.sprite = sprites[1];
-                break;
-
-            case itemTypeEnum.Item3:
-                _renderer.sprite = sprites[2];
-                break;
-            default:
-                break;
-        }
-    }
 
     // Called by the trinket once it overlaps the trigger
     void Collided(GameObject trinketOverlapped)

@@ -78,20 +78,20 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.1191717, y: 1.1131107}
-      - {x: 0.66707253, y: 1.1282437}
-      - {x: -0.34778464, y: 0.15604612}
-      - {x: -0.5692127, y: 0.33642972}
-      - {x: -0.89020824, y: 0.0817346}
-      - {x: -0.6212425, y: -0.20402789}
-      - {x: -1.1077118, y: -0.80244815}
-      - {x: -1.1139288, y: -1.1192373}
-      - {x: -0.783158, y: -1.1001533}
-      - {x: -0.21061349, y: -0.57710207}
-      - {x: 0.07626474, y: -0.88663447}
-      - {x: 0.36484116, y: -0.5754583}
-      - {x: 0.14869386, y: -0.3586982}
-      - {x: 1.1198456, y: 0.65731406}
+    - - {x: 1.5923972, y: 1.4211538}
+      - {x: 0.9394003, y: 1.4184291}
+      - {x: -0.6187657, y: -0.1746426}
+      - {x: -1.0147239, y: 0.21701431}
+      - {x: -1.363277, y: -0.09279555}
+      - {x: -0.92896676, y: -0.61279607}
+      - {x: -1.6129307, y: -1.3306316}
+      - {x: -1.5961832, y: -1.7806147}
+      - {x: -1.2240763, y: -1.8074597}
+      - {x: -0.43534148, y: -1.1123785}
+      - {x: 0.04411441, y: -1.5296403}
+      - {x: 0.36943406, y: -1.1863139}
+      - {x: -0.057986587, y: -0.7904306}
+      - {x: 1.5930712, y: 0.8314252}
   m_UseDelaunayMesh: 0
 --- !u!1 &4995872434045623264
 GameObject:
@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 907220370128997701}
   - component: {fileID: 4248469805938450756}
   - component: {fileID: 4687279707276037838}
-  - component: {fileID: 3256202359081646888}
   m_Layer: 7
   m_Name: DaggerPrefab
   m_TagString: Untagged
@@ -123,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 4995872434045623264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4246166, y: -0.50178623, z: 0}
+  m_LocalPosition: {x: 0.38, y: -1.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -177,7 +176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 0736d9e1f55346848bd4ad7e2959e514, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24ddf9e7d3f33874986e15c50fcc0386, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -265,7 +264,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.5}
+    oldSize: {x: 4.285714, y: 4.285714}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -273,30 +272,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.48365778, y: 1.215877}
-      - {x: -0.32250834, y: 0.33696038}
-      - {x: -0.70035434, y: 0.4264972}
-      - {x: -0.96928287, y: 0.120610535}
-      - {x: -0.6761613, y: -0.22494113}
-      - {x: -1.2936516, y: -0.95919776}
-      - {x: -1.216893, y: -1.1833651}
-      - {x: -0.9218986, y: -1.2786472}
-      - {x: -0.21353984, y: -0.6862757}
-      - {x: 0.07429421, y: -1.0278553}
-      - {x: 0.47674805, y: -0.6071389}
-      - {x: 0.36172712, y: -0.29712796}
-      - {x: 1.1870033, y: 0.5922324}
-      - {x: 1.1930093, y: 1.2220181}
-  m_UseDelaunayMesh: 0
---- !u!114 &3256202359081646888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4995872434045623264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2d68ca0eeea5a46a5390d9784433f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::S_Trinket
+    - - {x: 0.86150575, y: 1.5232788}
+      - {x: -0.6295651, y: 0.052083313}
+      - {x: -0.9162375, y: 0.3185558}
+      - {x: -1.4250361, y: -0.035305083}
+      - {x: -1.1139243, y: -0.6027366}
+      - {x: -1.7387486, y: -1.2666616}
+      - {x: -1.7452033, y: -1.8907533}
+      - {x: -1.1082053, y: -1.8803599}
+      - {x: -0.38744572, y: -1.2559671}
+      - {x: -0.05163759, y: -1.7054883}
+      - {x: 0.52472204, y: -1.206814}
+      - {x: 0.20162207, y: -0.81586814}
+      - {x: 1.7313604, y: 0.67548686}
+      - {x: 1.7309624, y: 1.5806534}
+  m_UseDelaunayMesh: 1
