@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 29e4aa956dd34574399e6b640d05fbaf, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 6f0d4fcf882fc864e9bcc6518f876d53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,6 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_Attach
   itemType: 0
   sprites:
-  - {fileID: 7482667652216324306, guid: 29e4aa956dd34574399e6b640d05fbaf, type: 3}
+  - {fileID: 7482667652216324306, guid: 6f0d4fcf882fc864e9bcc6518f876d53, type: 3}
   - {fileID: -2413806693520163455, guid: b12583b994cacd947ad3db22bb2ddb4f, type: 3}
   - {fileID: 7482667652216324306, guid: 31317cbd690a0dc45a45a50da669bdac, type: 3}
