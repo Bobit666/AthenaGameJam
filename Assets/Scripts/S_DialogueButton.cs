@@ -50,6 +50,10 @@ public class S_DialogueButton : MonoBehaviour
                     textBox.text = "I feel like my " + gameData.trinketGiven + " could stand to be a bit cooler. What can you do?";
                     break;
 
+                case "thruster":
+                    textBox.text = "You know what would be sick? If my " + gameData.trinketGiven + " could fly.";
+                    break;
+
                 default:
                     break;
             }

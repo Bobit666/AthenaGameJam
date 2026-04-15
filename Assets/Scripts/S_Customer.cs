@@ -7,10 +7,8 @@ public class S_Customer : MonoBehaviour
     public GameObject[] trinketPrefab;
     private int itemToSpawn;
     private int modifierToNeed;
-    private GameObject dialogueBox;
     private Vector3 spawnLocation = new Vector3(-20f, 0f, 0f);
 
-    private GameObject dialogueButton;
     public SO_GameData gameData;
 
     private bool spawnedItem = false;
@@ -27,12 +25,10 @@ public class S_Customer : MonoBehaviour
         // Randomly colour the customer's sprite (Currently does not work. No clue why)
         _renderer.color = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
         _animation = GetComponent<Animation>();
-        dialogueBox = GameObject.Find("DialogueTextBox");
-        dialogueButton = GameObject.Find("DialogueButton");
 
         // Randomly decide what item to spawn and what modifier to need
         itemToSpawn = Random.Range(0, trinketPrefab.Length);
-        modifierToNeed = Random.Range(0, 3);
+        modifierToNeed = Random.Range(0, 4);
         SelectModifierNeeded();
         SelectItemGiven();
 
@@ -57,6 +53,10 @@ public class S_Customer : MonoBehaviour
                 gameData.modifierNeeded = "fan";
                 break;
 
+            case 3:
+                gameData.modifierNeeded = "thruster";
+                    break;
+
             default:
                 break;
         }
@@ -77,6 +77,10 @@ public class S_Customer : MonoBehaviour
 
             case 2:
                 gameData.trinketGiven = "locket";
+                break;
+
+            case 3:
+                gameData.trinketGiven = "shield";
                 break;
 
             default:

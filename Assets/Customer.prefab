@@ -108,6 +108,7 @@ MonoBehaviour:
   - {fileID: 4995872434045623264, guid: 18fa6e25c85a3fb4f88e0442628fcc00, type: 3}
   - {fileID: 6387162394262882160, guid: 7ad3f0a8b8da2204c9a93741bc9eceb6, type: 3}
   - {fileID: 6220660694679147230, guid: a3b29b4170e136947854b54c00084f81, type: 3}
+  - {fileID: 3175822945464310231, guid: 31c12e9aef4cb124eae2629730c354fa, type: 3}
   gameData: {fileID: 11400000, guid: 4cd256f82db94944384138d03a36008d, type: 2}
   appearAnim: {fileID: 7400000, guid: c30b72ad174e2ae44a5f446ea149750b, type: 2}
   disappearAnim: {fileID: 7400000, guid: 1dc3011bc174f4344955c7a1bff6c7f9, type: 2}

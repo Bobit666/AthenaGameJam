@@ -1,3 +1,4 @@
+using System.Data;
 using UnityEngine;
 
 // This class handles the trinket's ability to detect collisions and attach items to itself
@@ -5,6 +6,13 @@ using UnityEngine;
 public class S_Attach : MonoBehaviour
 {
     private GameObject item;
+    private bool destroyConnection = false;
+    public SO_GameData gameData;
+
+    private void Start()
+    {
+        gameData.trinketInContactWithAnvil = false;
+    }
 
     // When the item enters the trigger
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +38,31 @@ public class S_Attach : MonoBehaviour
             // Create a fixed joint attaching the collided item to the trinket
             FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
             joint.connectedBody = item.GetComponent<Rigidbody2D>();
+
+            gameData.itemAttached = true;
+            Invoke("DetachItem", 5f);
+            destroyConnection = true;
         }
+    }
+
+    void DetachItem()
+    {
+        if (destroyConnection)
+        {
+            Destroy(GetComponent<FixedJoint2D>());
+            gameData.itemAttached = false;
+        }
+    }
+
+    void StayTogether()
+    {
+        destroyConnection = false;
+        print("Stuck together");
+        gameData.itemAttachedPermanently = true;
+    }
+
+    void ContactWithAnvil(bool InContact)
+    {
+        gameData.trinketInContactWithAnvil = InContact;
     }
 }

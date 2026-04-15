@@ -5,13 +5,22 @@ using UnityEngine;
 public class S_Item : MonoBehaviour
 {
     private bool inArea = false;
-    private GameObject colliderObject;
+    private GameObject trinketToAttachTo;
+    private bool inContactWithAnvil;
+    private int tinkCount;
+    public SO_GameData gameData;
+
+    private void Start()
+    {
+        gameData.itemAttached = false;
+        gameData.itemAttachedPermanently = false;
+    }
 
     // Called by the trinket once it overlaps the trigger
     void Collided(GameObject trinketOverlapped)
     {
         // Remember the trinket that it is overlapping
-        colliderObject = trinketOverlapped;
+        trinketToAttachTo = trinketOverlapped;
 
         // You are now in the area to attach to
         inArea = true;
@@ -31,8 +40,36 @@ public class S_Item : MonoBehaviour
         if (inArea)
         {
             // Ask the trinket politely if it can get attached
-            colliderObject.SendMessage("AttachItem");
+            trinketToAttachTo.SendMessage("AttachItem");
             gameObject.tag = "AttachedModifier";
+        }
+    }
+
+    void ContactWithAnvil(bool InContact)
+    {
+        inContactWithAnvil = InContact;
+    }
+
+    void HammerHit(float hitStrength)
+    {
+        print(tinkCount);
+        if (gameData.itemAttached && inContactWithAnvil || gameData.trinketInContactWithAnvil)
+        {
+            if (hitStrength < 8 && hitStrength > 3)
+            {
+                print("Tink");
+                tinkCount++;
+            }
+            else if (hitStrength > 8)
+            {
+                print("Clank");
+                tinkCount--;
+            }
+        }
+
+        if (tinkCount == 5)
+        {
+            trinketToAttachTo.SendMessage("StayTogether");
         }
     }
 }

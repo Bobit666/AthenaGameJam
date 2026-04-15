@@ -47,7 +47,7 @@ public class S_SellArea : MonoBehaviour
     void SellTrinket()
     {
         // If the completed item is in the selling area
-        if (combinedItemInArea)
+        if (combinedItemInArea && gameData.itemAttachedPermanently)
         {
             // If the correct modifier has been applied
             if (attachedModifierInArea.name == gameData.modifierNeeded)
@@ -66,6 +66,8 @@ public class S_SellArea : MonoBehaviour
             // Take the trinket and modifier away
             Destroy(trinketInArea);
             Destroy(attachedModifierInArea);
+            gameData.itemAttachedPermanently = false;
+            gameData.itemAttached = false;
 
             // Tell the customer to disappear
             customer = GameObject.Find("Customer(Clone)");

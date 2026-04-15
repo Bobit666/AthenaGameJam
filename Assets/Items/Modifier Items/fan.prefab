@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6064c54b83c474c8d3b9d26ca49dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_Attach
+  gameData: {fileID: 11400000, guid: 4cd256f82db94944384138d03a36008d, type: 2}
 --- !u!60 &5918196291783901252
 PolygonCollider2D:
   m_ObjectHideFlags: 0

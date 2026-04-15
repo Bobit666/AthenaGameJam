@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473fd99e8d1806b458b5a9976fa39ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_Attach
+  gameData: {fileID: 11400000, guid: 4cd256f82db94944384138d03a36008d, type: 2}
 --- !u!50 &7223652469697828489
 Rigidbody2D:
   serializedVersion: 5
