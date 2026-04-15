@@ -25,7 +25,7 @@ public class S_Attach : MonoBehaviour
     // When needing to attach the previously collided item
     void AttachItem()
     {
-        if (item != null)
+        if (item != null && item.GetComponent<Rigidbody2D>() != null)
         {
             // Create a fixed joint attaching the collided item to the trinket
             FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
