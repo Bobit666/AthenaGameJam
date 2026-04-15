@@ -10,6 +10,9 @@ public class S_DialogueButton : MonoBehaviour
     public GameObject customer;
     public TextMeshProUGUI buttonText;
 
+    public GameObject sellArea;
+    private bool hasTalked = false;
+
     void Start()
     {
         talkButton = GetComponent<Button>();
@@ -18,20 +21,30 @@ public class S_DialogueButton : MonoBehaviour
 
     void CreateDialogue()
     {
-        switch(gameData.modifierNeeded)
+        if (!hasTalked)
         {
-            case "magnet":
-                textBox.text = "My " + gameData.trinketGiven + " needs to stick to my fridge! Any ideas?";
-                break;
+            switch (gameData.modifierNeeded)
+            {
+                case "magnet":
+                    textBox.text = "My " + gameData.trinketGiven + " needs to stick to my fridge! Any ideas?";
+                    break;
 
-            case "microwave":
-                textBox.text = "My " + gameData.trinketGiven + " isn't as hot as it used to be. Can you help with this?";
-                break;
+                case "microwave":
+                    textBox.text = "My " + gameData.trinketGiven + " isn't as hot as it used to be. Can you help with this?";
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
+
+            customer.SendMessage("SpawnItem");
+            buttonText.text = "Give";
+            hasTalked = true;
         }
-        customer.SendMessage("SpawnItem");
-        buttonText.text = "Give";
+
+        else
+        {
+            sellArea.SendMessage("SellTrinket");
+        }
     }
 }

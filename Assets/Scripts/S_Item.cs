@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class S_Item : MonoBehaviour
 {
-    public string itemName;
     private bool inArea = false;
     private GameObject colliderObject;
 
@@ -33,6 +32,7 @@ public class S_Item : MonoBehaviour
         {
             // Ask the trinket politely if it can get attached
             colliderObject.SendMessage("AttachItem");
+            gameObject.tag = "AttachedModifier";
         }
     }
 }

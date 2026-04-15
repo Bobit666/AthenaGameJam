@@ -5,4 +5,5 @@ public class SO_GameData : ScriptableObject
 {
     public string trinketGiven;
     public string modifierNeeded;
+    public int coinCount;
 }

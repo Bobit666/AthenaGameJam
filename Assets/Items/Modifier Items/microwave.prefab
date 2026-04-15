@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 696457578085394737}
   - component: {fileID: 7202823260291729354}
   m_Layer: 7
-  m_Name: MicrowavePrefab
-  m_TagString: Untagged
+  m_Name: microwave
+  m_TagString: Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

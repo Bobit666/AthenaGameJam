@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5804649754140424447}
   m_Layer: 9
   m_Name: TableCollision
-  m_TagString: Untagged
+  m_TagString: Trinket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 4248469805938450756}
   - component: {fileID: 4687279707276037838}
   m_Layer: 7
-  m_Name: DaggerPrefab
-  m_TagString: Untagged
+  m_Name: dagger
+  m_TagString: Trinket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

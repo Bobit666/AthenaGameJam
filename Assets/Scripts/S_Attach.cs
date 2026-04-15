@@ -18,15 +18,18 @@ public class S_Attach : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // Remember the collided item and tell it that it's no longer in the area
-        item = collision.gameObject;
-        item.SendMessage("LeftCollision", gameObject, SendMessageOptions.DontRequireReceiver);
+        item = null;
+        collision.SendMessage("LeftCollision", gameObject, SendMessageOptions.DontRequireReceiver);
     }
 
     // When needing to attach the previously collided item
     void AttachItem()
     {
-        // Create a fixed joint attaching the collided item to the trinket
-        FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
-        joint.connectedBody = item.GetComponent<Rigidbody2D>();
+        if (item != null)
+        {
+            // Create a fixed joint attaching the collided item to the trinket
+            FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
+            joint.connectedBody = item.GetComponent<Rigidbody2D>();
+        }
     }
 }

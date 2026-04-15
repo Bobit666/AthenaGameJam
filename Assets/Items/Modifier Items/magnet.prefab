@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6132044560714256925}
   - component: {fileID: 7156866742027757806}
   m_Layer: 7
-  m_Name: MagnetPrefab
-  m_TagString: Untagged
+  m_Name: magnet
+  m_TagString: Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
