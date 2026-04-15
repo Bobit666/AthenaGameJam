@@ -9,6 +9,7 @@ public class S_Item : MonoBehaviour
     private bool inContactWithAnvil;
     private int tinkCount;
     public SO_GameData gameData;
+    private bool attached = false;
 
     private void Start()
     {
@@ -45,21 +46,32 @@ public class S_Item : MonoBehaviour
         }
     }
 
+    // Sent by S_Attach
+    void Attached(bool areYouAttached)
+    {
+        attached = areYouAttached;
+    }
+
+    // Sent by S_Anvil
     void ContactWithAnvil(bool InContact)
     {
         inContactWithAnvil = InContact;
     }
 
+    // Whenever the hammer collides with this item
     void HammerHit(float hitStrength)
     {
         print(tinkCount);
-        if (gameData.itemAttached && inContactWithAnvil || gameData.trinketInContactWithAnvil)
+        // If attached AND if either this item OR the trinket is in contact with the anvil
+        if (attached && inContactWithAnvil || gameData.trinketInContactWithAnvil)
         {
+            // If the player hammers the item softly
             if (hitStrength < 8 && hitStrength > 3)
             {
                 print("Tink");
                 tinkCount++;
             }
+            // If the player hammers the item hard
             else if (hitStrength > 8)
             {
                 print("Clank");
@@ -67,7 +79,8 @@ public class S_Item : MonoBehaviour
             }
         }
 
-        if (tinkCount == 5)
+        // If the player has hit the item softly 5 times
+        if (tinkCount >= 5)
         {
             trinketToAttachTo.SendMessage("StayTogether");
         }

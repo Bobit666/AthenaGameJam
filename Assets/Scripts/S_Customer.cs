@@ -22,8 +22,8 @@ public class S_Customer : MonoBehaviour
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
-        // Randomly colour the customer's sprite (Currently does not work. No clue why)
-        _renderer.color = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
+        // Randomly colour the customer's sprite
+        _renderer.material.color = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
         _animation = GetComponent<Animation>();
 
         // Randomly decide what item to spawn and what modifier to need
