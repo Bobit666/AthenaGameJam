@@ -61,7 +61,10 @@ public class S_Attach : MonoBehaviour
             Destroy(GetComponent<FixedJoint2D>());
             // The item is no longer counted as being attached
             gameData.itemAttached = false;
-            item.SendMessage("Attached", false, SendMessageOptions.DontRequireReceiver);
+            if (item != null)
+            {
+                item.SendMessage("Attached", false, SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 

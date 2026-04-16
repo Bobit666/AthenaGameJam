@@ -1472,6 +1472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fan
       objectReference: {fileID: 0}
+    - target: {fileID: 5447535441616148330, guid: 78ac6f11e06906c40b37d0e6997000ce, type: 3}
+      propertyPath: doneParticle
+      value: 
+      objectReference: {fileID: 2100000, guid: f3024179d9e7db94c91152b27ab121a5, type: 2}
     - target: {fileID: 9110163705767113104, guid: 78ac6f11e06906c40b37d0e6997000ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.092935
@@ -1512,7 +1516,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2369,7 +2375,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -630
   m_Sprite: {fileID: 21300000, guid: 61e8ffaf4ff90c2438c12411792c4e8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2693,6 +2699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fan
       objectReference: {fileID: 0}
+    - target: {fileID: 5447535441616148330, guid: 78ac6f11e06906c40b37d0e6997000ce, type: 3}
+      propertyPath: doneParticle
+      value: 
+      objectReference: {fileID: 2100000, guid: f3024179d9e7db94c91152b27ab121a5, type: 2}
     - target: {fileID: 9110163705767113104, guid: 78ac6f11e06906c40b37d0e6997000ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.97
@@ -3103,10 +3113,10 @@ RectTransform:
   - {fileID: 1973737368}
   m_Father: {fileID: 140135148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -527.18, y: -309.5}
-  m_SizeDelta: {x: 175.64, y: 44.99}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 112.4, y: 51.7}
+  m_SizeDelta: {x: 175.64001, y: 44.98999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631164772
 MonoBehaviour:
@@ -4582,7 +4592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -118.5, y: 40}
+  m_AnchoredPosition: {x: -107.6, y: 41.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2142319653
@@ -4792,6 +4802,10 @@ PrefabInstance:
       propertyPath: itemName
       value: Microwave
       objectReference: {fileID: 0}
+    - target: {fileID: 7202823260291729354, guid: 856563f800382904ea39b0b48dacd4ee, type: 3}
+      propertyPath: doneParticle
+      value: 
+      objectReference: {fileID: 2100000, guid: f3024179d9e7db94c91152b27ab121a5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
