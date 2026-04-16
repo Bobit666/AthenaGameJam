@@ -33,7 +33,8 @@ public class S_Attach : MonoBehaviour
     // When needing to attach the previously collided item
     void AttachItem()
     {
-        if (item != null && item.GetComponent<Rigidbody2D>() != null)
+        // If the item exists, has a rigidbody, and isn't a hammer
+        if (item != null && item.GetComponent<Rigidbody2D>() != null && !item.CompareTag("Hammer"))
         {
             // Create a fixed joint attaching the collided item to the trinket
             FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
@@ -60,7 +61,7 @@ public class S_Attach : MonoBehaviour
             Destroy(GetComponent<FixedJoint2D>());
             // The item is no longer counted as being attached
             gameData.itemAttached = false;
-            item.SendMessage("Attached", false);
+            item.SendMessage("Attached", false, SendMessageOptions.DontRequireReceiver);
         }
     }
 

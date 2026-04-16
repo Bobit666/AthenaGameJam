@@ -6,10 +6,14 @@ public class S_DialogueButton : MonoBehaviour
 {
     private Button talkButton;
     public TextMeshProUGUI textBox;
+    public RawImage dialogueBox;
     public SO_GameData gameData;
     public GameObject customerPrefab;
     private GameObject newCustomer;
     public TextMeshProUGUI buttonText;
+
+    private Color visibleColour = new Color(1f, 1f, 1f, 1f);
+    private Color invisibleColour = new Color(1f, 1f, 1f, 0f);
 
     public GameObject sellArea;
     private bool hasTalked = false;
@@ -20,6 +24,7 @@ public class S_DialogueButton : MonoBehaviour
         // Tie the button being clicked to its own event
         talkButton = GetComponent<Button>();
         talkButton.onClick.AddListener(CreateDialogue);
+        dialogueBox.color = invisibleColour;
     }
 
     // Progresses the interaction with the customer
@@ -35,6 +40,7 @@ public class S_DialogueButton : MonoBehaviour
         // If there is a customer and they haven't spoken yet
         else if (!hasTalked)
         {
+            dialogueBox.color = visibleColour;
             // Set text depending on the modifier they ask for
             switch (gameData.modifierNeeded)
             {
@@ -82,6 +88,7 @@ public class S_DialogueButton : MonoBehaviour
     void EmptyDialogue()
     {
         textBox.text = "";
+        dialogueBox.color = invisibleColour;
         buttonText.text = "Next!";
         customerThere = false;
         hasTalked = false;
