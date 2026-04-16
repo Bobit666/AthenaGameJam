@@ -9,6 +9,11 @@ public class S_HoldItems : MonoBehaviour
     private Rigidbody2D body;
     private float moveForce = 70;
 
+    private void Start()
+    {
+        moveForce = Screen.width / 19;
+    }
+
     void Update()
     {
         // If the mouse is down
