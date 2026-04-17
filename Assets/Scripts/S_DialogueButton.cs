@@ -80,7 +80,7 @@ public class S_DialogueButton : MonoBehaviour
     // Called by S_SellArea to empty the dialogue box after the customer leaves. It is delayed to give the player time to read
     void EmptyDialogueDelayed()
     {
-        Invoke("EmptyDialogue", 2f);
+        Invoke("EmptyDialogue", 1f);
         buttonText.text = "";
     }
 

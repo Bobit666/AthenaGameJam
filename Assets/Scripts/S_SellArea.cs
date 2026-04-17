@@ -12,6 +12,7 @@ public class S_SellArea : MonoBehaviour
     public TextMeshProUGUI dialogueBox;
     public GameObject dialogueButton;
     public SO_GameData gameData;
+    public GameObject wholeLevelArea;
 
     private GameObject customer;
 
@@ -23,7 +24,6 @@ public class S_SellArea : MonoBehaviour
         {
             trinketInArea = collision.gameObject;
             combinedItemInArea = true;
-            print("Found combined item");
         }
 
         // Get a reference to the modifier attached to the trinket
@@ -68,6 +68,9 @@ public class S_SellArea : MonoBehaviour
             Destroy(attachedModifierInArea);
             gameData.itemAttachedPermanently = false;
             gameData.itemAttached = false;
+
+            // Updates the count of modifiers in the scene. If it equals 0, bring the player back to the main menu
+            wholeLevelArea.SendMessage("ModifierRemoved");
 
             // Tell the customer to disappear
             customer = GameObject.Find("Customer(Clone)");

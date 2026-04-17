@@ -7,12 +7,7 @@ public class S_HoldItems : MonoBehaviour
     private bool dragging = false;
     private GameObject item;
     private Rigidbody2D body;
-    private float moveForce = 70;
-
-    private void Start()
-    {
-        moveForce = Screen.width / 19;
-    }
+    private float moveForce = 550;
 
     void Update()
     {
@@ -53,8 +48,11 @@ public class S_HoldItems : MonoBehaviour
                 // Check if the item is overlapping a trinket
                 item.SendMessage("CheckIfInArea", SendMessageOptions.DontRequireReceiver);
             }
-        }
+        }   
+    }
 
+    private void FixedUpdate()
+    {
         // While the item is being dragged
         if (dragging)
         {
