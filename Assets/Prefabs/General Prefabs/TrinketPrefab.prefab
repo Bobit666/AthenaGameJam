@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4433842480492212134}
   - component: {fileID: 4472240572458654016}
-  - component: {fileID: 7882700550984927318}
   - component: {fileID: 4072536202671754895}
   - component: {fileID: -2287391159911381024}
   - component: {fileID: 894924941330463043}
@@ -95,18 +94,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7882700550984927318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384377515562331165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473fd99e8d1806b458b5a9976fa39ba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::S_Attach
 --- !u!50 &4072536202671754895
 Rigidbody2D:
   serializedVersion: 5
@@ -194,9 +181,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 384377515562331165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2d68ca0eeea5a46a5390d9784433f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 473fd99e8d1806b458b5a9976fa39ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_Trinket
+  gameData: {fileID: 11400000, guid: 4cd256f82db94944384138d03a36008d, type: 2}
 --- !u!1 &1537505294349173551
 GameObject:
   m_ObjectHideFlags: 0

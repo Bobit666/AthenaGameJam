@@ -10,6 +10,5 @@ public class SO_GameData : ScriptableObject
     public int coinCount;
     public bool trinketInContactWithAnvil;
     public bool itemAttached;
-    public bool itemAttachedPermanently;
     public int modifiersInScene;
 }

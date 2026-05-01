@@ -7,7 +7,9 @@ public class S_HoldItems : MonoBehaviour
     private bool dragging = false;
     private GameObject item;
     private Rigidbody2D body;
-    private float moveForce = 550;
+    private float moveForce = 600;
+    private float maxMoveSpeed = 30;
+    private float dampingAmount = 20;
 
     void Update()
     {
@@ -43,10 +45,7 @@ public class S_HoldItems : MonoBehaviour
                 body.linearDamping = 0;
 
                 // Stop the body from getting flung too far
-                body.linearVelocity = Vector3.ClampMagnitude(body.linearVelocity, 20);
-
-                // Check if the item is overlapping a trinket
-                item.SendMessage("CheckIfInArea", SendMessageOptions.DontRequireReceiver);
+                body.linearVelocity = Vector3.ClampMagnitude(body.linearVelocity, maxMoveSpeed);
             }
         }   
     }
@@ -65,13 +64,11 @@ public class S_HoldItems : MonoBehaviour
 
             // Add force in that direction
             body.AddForce(direction.normalized * moveForce);
+            body.linearVelocity = Vector3.ClampMagnitude(body.linearVelocity, maxMoveSpeed);
 
-            // If the item is close to the mouse 
-            if (item.transform.position.x - mousePosition.x <= 5 || item.transform.position.y - mousePosition.y <= 7f)
-            {
-                // Damp its velocity to prevent it from getting flung back and forth
-                body.linearDamping = 10;
-            }
+            // Damp the item's velocity when close to the mouse cursor
+            float distance = Vector2.Distance(item.transform.position, mousePosition);
+            body.linearDamping = dampingAmount - (distance * 1.2f);
         }
     }
 }

@@ -47,7 +47,7 @@ public class S_SellArea : MonoBehaviour
     void SellTrinket()
     {
         // If the completed item is in the selling area
-        if (combinedItemInArea && gameData.itemAttachedPermanently)
+        if (combinedItemInArea && gameData.itemAttached)
         {
             // If the correct modifier has been applied
             if (attachedModifierInArea.name == gameData.modifierNeeded)
@@ -66,7 +66,6 @@ public class S_SellArea : MonoBehaviour
             // Take the trinket and modifier away
             Destroy(trinketInArea);
             Destroy(attachedModifierInArea);
-            gameData.itemAttachedPermanently = false;
             gameData.itemAttached = false;
 
             // Updates the count of modifiers in the scene. If it equals 0, bring the player back to the main menu
