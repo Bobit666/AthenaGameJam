@@ -43,10 +43,11 @@ public class S_Item : MonoBehaviour
         print(tinkCount);
         if (!completed)
         {
-            // If attached AND if either this item OR the trinket is in contact with the anvil
+            // If both items involved are touching the anvil
             if (inContactWithAnvil && gameData.trinketInContactWithAnvil)
             {
                 var main = _particleSystem.main;
+
                 // If the player hammers the item softly
                 if (hitStrength < 8 && hitStrength > 3)
                 {
@@ -80,6 +81,8 @@ public class S_Item : MonoBehaviour
                 main.startColor = Color.white;
                 main.startSpeed = 25f;
                 _particleSystem.Play();
+
+                // Attach to the trinket
                 trinketToAttachTo.SendMessage("StayTogether");
                 completed = true;
             }

@@ -62,7 +62,7 @@ public class S_HoldItems : MonoBehaviour
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = mousePosition - item.transform.position;
 
-            // Add force in that direction
+            // Add force in that direction, but do not exceed max speed
             body.AddForce(direction.normalized * moveForce);
             body.linearVelocity = Vector3.ClampMagnitude(body.linearVelocity, maxMoveSpeed);
 
